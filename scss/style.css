@@ -39,6 +39,17 @@ a {
   text-decoration: none;
 }
 
+.btn {
+  background-color: var(--primary);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  color: var(--white);
+  height: 40px;
+  font-size: 1rem;
+  padding: 0 12px;
+}
+
 .nav-bar-section {
   position: sticky;
   top: 0;
@@ -148,12 +159,11 @@ a {
 }
 
 .objectives-container {
-  background: var(--primary);
-  color: var(--white);
   padding: 20px 10px;
   margin: 50px 0;
 }
 .objectives-container .objectives-wrapper .objectives-header-title {
+  color: var(--primary);
   margin-bottom: 12px;
   text-align: center;
 }
@@ -161,25 +171,46 @@ a {
   display: flex;
   align-items: stretch;
   justify-content: space-around;
+  margin: 0 auto;
+  width: 90%;
 }
 .objectives-container .objectives-wrapper .objectives-card-wrapper .objectives-card {
-  background-color: var(--primary-lighten-8);
+  background-color: var(--primary);
   border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  color: var(--white);
   min-height: 150px;
   padding: 18px;
-  width: 40%;
+  width: 45%;
 }
 .objectives-container .objectives-wrapper .objectives-card-wrapper .objectives-card p {
   font-size: 18px;
 }
 
 .eligibility-container {
-  padding: 20px 10px;
-  margin: 50px 0;
+  background: url("../assets/bg-eligibility.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 50px 10px;
+  position: relative;
+}
+.eligibility-container::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.eligibility-container .eligibility-wrapper {
+  position: relative;
+  z-index: 2;
 }
 .eligibility-container .eligibility-wrapper .eligibility-header-title {
-  color: var(--primary);
-  margin-bottom: 12px;
+  color: var(--white);
+  margin-bottom: 24px;
   text-align: center;
 }
 .eligibility-container .eligibility-wrapper .eligibility-header-title p {
@@ -195,7 +226,6 @@ a {
 }
 .eligibility-container .eligibility-wrapper .eligibility-card-wrapper .eligibility-card {
   flex: 1;
-  background-color: var(--primary);
   color: var(--white);
   border-radius: 10px;
   min-height: 150px;
@@ -210,4 +240,144 @@ a {
 }
 .eligibility-container .eligibility-wrapper .eligibility-card-wrapper .eligibility-card p {
   font-size: 18px;
+}
+
+.core-themes-container {
+  padding: 50px 0;
+}
+.core-themes-container .core-themes-card-wrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 26px;
+  width: 90%;
+  margin: 0 auto;
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card {
+  flex: 1;
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card .card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card .card-title .card-icon-w {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card .card-title .card-icon-w .bg-icon {
+  height: 100px;
+  width: 100px;
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card .card-title .card-icon-w .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  filter: invert(1);
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card .card-title h2 {
+  font-size: 1.4rem;
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card .card-title h2 span {
+  color: var(--primary);
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card.text.holder {
+  flex: unset;
+  width: 300px;
+}
+.core-themes-container .core-themes-card-wrapper .core-themes-card .ct-details-wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.apply-now-container {
+  background: url("../assets/bg-apply-now.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.apply-now-container::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.apply-now-container .why-apply-wrapper {
+  flex: 1;
+  color: var(--white);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+.apply-now-container .why-apply-wrapper .wa-header-title {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.apply-now-container .why-apply-wrapper .wa-header-title h2 {
+  margin-bottom: 10px;
+}
+.apply-now-container .why-apply-wrapper .wa-header-title p {
+  font-size: 16px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.apply-now-container .why-apply-wrapper .wa-header-title p:last-child {
+  margin-bottom: 0;
+}
+.apply-now-container .why-apply-wrapper .wa-content ul {
+  margin: 0 auto;
+}
+.apply-now-container .why-apply-wrapper .wa-content ul li {
+  list-style-type: disc;
+}
+.apply-now-container .apply-now-wrapper {
+  flex: 1;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.apply-now-container .apply-now-wrapper .an-header-title {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.apply-now-container .apply-now-wrapper .an-content p {
+  margin: 0 auto;
+}
+.apply-now-container .apply-now-wrapper .an-content .btn {
+  margin-top: 20px;
+}
+.apply-now-container .apply-now-wrapper .an-content .note {
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.footer-container {
+  background: var(--primary);
+  padding: 20px 22px;
+}
+.footer-container .footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-container .footer-wrapper .img-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */

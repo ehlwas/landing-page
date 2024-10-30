@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
 }
 
-$primary: rgba(27, 131, 84, 1);
+$primary: rgb(27, 131, 84);
 $white: #fff;
 
 :root {
@@ -44,6 +44,17 @@ img {
 a {
     color: black;
     text-decoration: none;
+}
+
+.btn {
+    background-color: var(--primary);
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    color: var(--white);
+    height: 40px;
+    font-size: 1rem;
+    padding: 0 12px;
 }
 
 .nav-bar-section {
@@ -175,13 +186,13 @@ a {
 }
 
 .objectives-container {
-    background: var(--primary);
-    color: var(--white);
+    // background: var(--primary);
     padding: 20px 10px;
     margin: 50px 0;
     
     .objectives-wrapper {
         .objectives-header-title {
+            color: var(--primary);
             margin-bottom: 12px;
             text-align: center;
         }
@@ -190,13 +201,17 @@ a {
             display: flex;
             align-items: stretch;
             justify-content: space-around;
+            margin: 0 auto;
+            width: 90%;
 
             .objectives-card {
-                background-color: var(--primary-lighten-8);
+                background-color: var(--primary);
                 border-radius: 10px;
+                box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+                color: var(--white);
                 min-height: 150px;
                 padding: 18px;
-                width: 40%;
+                width: 45%;
 
                 p {
                     font-size: 18px;
@@ -207,13 +222,30 @@ a {
 }
 
 .eligibility-container {
-    padding: 20px 10px;
-    margin: 50px 0;
+    background: url('../assets/bg-eligibility.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 50px 10px;
+    position: relative;
+    
+    &::before {
+        content: '';
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
     
     .eligibility-wrapper {
+        position: relative;
+        z-index: 2;
+        
         .eligibility-header-title {
-            color: var(--primary);
-            margin-bottom: 12px;
+            color: var(--white);
+            margin-bottom: 24px;
             text-align: center;
 
             p {
@@ -231,7 +263,8 @@ a {
 
             .eligibility-card {
                 flex: 1;
-                background-color: var(--primary);
+                // background-color: var(--primary);
+                // border: 1px solid rgba(255, 255, 255, .4);
                 color: var(--white);
                 border-radius: 10px;
                 min-height: 150px;
@@ -249,6 +282,180 @@ a {
                     font-size: 18px;
                 }
             }
+        }
+    }
+}
+
+.core-themes-container {
+    padding: 50px 0;
+
+    .core-themes-card-wrapper {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-around;
+        gap: 26px;
+        width: 90%;
+        margin: 0 auto;
+
+        .core-themes-card {
+            flex: 1;
+
+            .card-title {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .card-icon-w {
+                    position: relative;
+                    height: 100px;
+                    width: 100px;
+                    
+                    .bg-icon {
+                        height: 100px;
+                        width: 100px;
+                    }
+    
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 50px;
+                        height: 50px;
+                        filter: invert(1);
+                    }
+                }
+
+                h2 {
+                    font-size: 1.4rem;
+                    
+                    span {
+                        color: var(--primary);
+                    }
+                }
+            }
+
+            
+            &.text.holder {
+                flex: unset;
+                width: 300px;
+            }
+
+            .ct-details-wrapper {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.apply-now-container {
+    background: url('../assets/bg-apply-now.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    &::before {
+        content: '';
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .why-apply-wrapper {
+        flex: 1;
+        color: var(--white);
+        margin-bottom: 28px;
+        position: relative;
+        z-index: 1;
+
+        .wa-header-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-align: center;
+            
+            h2 {
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 16px;
+                margin: 0 auto;
+                // width: 60%;
+                margin-bottom: 10px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .wa-content {
+            ul {
+                // width: 50%;
+                margin: 0 auto;
+                
+                li {
+                    list-style-type: disc;
+                }
+            }
+        }
+    }
+
+    .apply-now-wrapper {
+        flex: 1;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        z-index: 1;
+
+        .an-header-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .an-content {
+            p {
+                margin: 0 auto;
+                // width: 60%;
+            }
+            
+            .btn {
+                margin-top: 20px;
+            }
+
+            .note {
+                font-size: 12px;
+                margin-top: 6px;
+            }
+        }
+    }
+}
+
+.footer-container {
+    background: var(--primary);
+    padding: 20px 22px;
+    // margin-top: 50px;
+    
+    .footer-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .img-holder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
