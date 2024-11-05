@@ -22,7 +22,7 @@ const renderBannerContent = async () =>  {
     const { headerSection = {} } = cmsData
     const { headerBgImg = '', bigText = '', smallText = '', applyBeforeText = '', applyBeforeDate = '' } = headerSection
 
-    bannerSection.innerHTML = `
+    bannerSection.innerHTML = `        
         <img src="./assets/${headerBgImg}" alt="Banner" />
 
         <div class="banner-message-wrapper">
@@ -30,11 +30,12 @@ const renderBannerContent = async () =>  {
           <h1 class="thin">${smallText}</h1>
 
           <div class="apply-here-w">
+            <img src="./assets/icons/calendar-03.svg" alt="Calendar" class="calendar-icon">
             <div class="message-w">
-              <p>${applyBeforeText}</p>
+              <p class="label">${applyBeforeText}</p>
               <p class="date">${applyBeforeDate}</p>
             </div>
-            <button class="btn">Apply here</button>
+            <button class="btn btn-primary">Apply here</button>
           </div>
         </div>
     `
@@ -45,28 +46,18 @@ const renderAbout = async () => {
     const aboutContainer = document.querySelector('#aboutSection');
 
     const { aboutSection = {} } = cmsData
-    const { aboutTitle = '', aboutCards = [] } = aboutSection
-
-    let makeCards = ''
-
-    await aboutCards.forEach(label => {
-        makeCards += `
-            <div class="divider-title-card-c">
-                <p>${label}</p>
-            </div>
-        `
-    });
+    const { aboutTitle = '', aboutDescription = '' } = aboutSection
 
     aboutContainer.innerHTML = `
-        <div class="divider-titles-wrapper">
-          <h1 class="divider-title-header">
-            ${aboutTitle}
-          </h1>
-
-          <div class="divider-titles-cards-w">
-            ${makeCards}
-          </div>
+      <div class="divider-titles-wrapper">
+        <h2 class="divider-title-header">
+          ${aboutTitle}
+        </h2>
+        
+        <div class="divider-content">
+          <p>${aboutDescription}</p>
         </div>
+      </div>
     `
 }
 
@@ -75,27 +66,31 @@ const renderObjectives = async () => {
     const objectivesContainer = document.querySelector('#objectivesSection');
 
     const { objectivesSection = {} } = cmsData
-    const { objectivesTitle = '', objectivesLeftText = '', objectivesRightText = ''} = objectivesSection
+    const { objectivesTitle = '', objectivesCards = [] } = objectivesSection
+
+    let makeCards = ''
+
+    objectivesCards.forEach(element => {
+      const { iconImg = '', text = '' } = element
+
+      makeCards += `
+        <div class="objectives-card">
+          <img src="./assets/icons/${iconImg}" alt="">
+          ${text}
+        </div>
+      `
+    });
 
     objectivesContainer.innerHTML = `
-        <div class="objectives-wrapper">
-          <div class="objectives-header-title">
-            <h1>${objectivesTitle}</h1>
-          </div>
-
-          <div class="objectives-card-wrapper">
-            <div class="objectives-card">
-              <p class="text-c">
-                ${objectivesLeftText}
-              </p>
-            </div>
-            <div class="objectives-card">
-              <p>
-                ${objectivesRightText}
-              </p>
-            </div>
-          </div>
+      <div class="objectives-wrapper">
+        <div class="objectives-header-title">
+          <h2>${objectivesTitle}</h2>
         </div>
+
+        <div class="objectives-card-wrapper">
+          ${makeCards}
+        </div>
+      </div>
     `
 }
 
@@ -119,8 +114,9 @@ const renderEligibility = async () => {
                 src="./assets/icons/${iconImg}"
                 alt="Icon"
               />
+              <p class="header"><strong>${boldText}</strong></p>
               <p>
-                <strong>${boldText}</strong> ${thinText}
+                ${thinText}
               </p>
             </div>
         `
@@ -132,7 +128,7 @@ const renderEligibility = async () => {
         <div class="eligibility-wrapper">
 
           <div class="eligibility-header-title">
-            <h1>${eligibilityTitle}</h1>
+            <h2>${eligibilityTitle}</h2>
             <p>
               ${eligibilityDescription}
             </p>
@@ -193,7 +189,7 @@ const renderCoreThemes = async () => {
     coreThemesContainer.innerHTML = `
         <div class="title-header">
           <div class="ct-details-wrapper">
-            <h1>${coreThemesTitle}</h1>
+            <h2>${coreThemesTitle}</h2>
             <p>
                 ${coreThemesDescription}
             </p>
@@ -214,17 +210,19 @@ const renderWhyApply = async () => {
     const { whyApplyTitle = '', whyApplyDescription = '' } = whyApplySection
 
     whyApplyContainer.innerHTML = `
-        <div class="why-apply-wrapper">
-          <div class="wa-header-title">
-            <h2>${whyApplyTitle}</h2>
-            <p>
-              ${whyApplyDescription}
-            </p>
-            <p>
-              
-            </p>
-          </div>
+      <img src="./assets/logo-stamp.svg" class="logo-stamp" alt="">
+      
+      <div class="why-apply-wrapper">
+        <div class="wa-header-title">
+          <h2>${whyApplyTitle}</h2>
+          <p>
+            ${whyApplyDescription}
+          </p>
+          <p>
+            
+          </p>
         </div>
+      </div>
     `
 }
 
@@ -259,6 +257,32 @@ const renderApplyNow = async () => {
 }
 
 
+const renderTags = async () => {
+    const tagsContainer = document.querySelector('#tagsSection');
+
+    const { tagsSection = {} } = cmsData
+    const { tagsHeader = '', tagsList = [] } = tagsSection
+
+    let makeTags = ''
+
+    tagsList.forEach(text => {
+      makeTags += `
+        <a class="tagrank" href="#">
+          <img src="./assets/icons/hashtag.svg" alt="">
+          <span>${text}</span>
+        </a>`
+    });
+
+    tagsContainer.innerHTML = `
+      <h3 class="title-header">${tagsHeader}</h3>
+
+      <div class="tags-content">
+        ${makeTags}
+      </div>
+    `
+}
+
+
 (async () => {
     await renderBannerContent();
     await renderAbout();
@@ -267,6 +291,7 @@ const renderApplyNow = async () => {
     await renderCoreThemes()
     await renderWhyApply()
     await renderApplyNow()
+    await renderTags()
 
     document.querySelector('#pageContainer').style.opacity = 1
 })();

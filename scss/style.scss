@@ -139,6 +139,7 @@ h2 {
   background: var(--darken-white-1);
   padding: 0 22px;
   z-index: 999;
+  overflow: hidden;
 
   // &.scrolled {
   //     background: var(--primary-lighten-1);
@@ -277,6 +278,7 @@ h2 {
       max-width: 623px;
 
       @media (max-width: 800px) {
+        flex-direction: column;
         width: 80%;
       }
 
@@ -325,7 +327,7 @@ h2 {
         // font-size: var(--text-md-medium-font-size) !important;
 
         @media (max-width: 800px) {
-          width: 150px;
+          width: 100%;
         }
       }
     }
@@ -394,6 +396,10 @@ h2 {
   background: var(--themes-icon-bg-icon-brand-light);
   padding: 50px 80px 60px;
   position: relative;
+
+  @media (max-width: 800px) {
+    padding: 50px 0px 60px;
+  }
 
   &::after,
   &::before {
@@ -605,6 +611,10 @@ h2 {
     text-align: center;
     margin-bottom: 28px;
 
+    @media (max-width: 800px) {
+      padding: 0 10px;
+    }
+
     h2 {
       color: #1b8354;
       // font-family: "IBM Plex Sans Arabic", Helvetica;
@@ -635,6 +645,7 @@ h2 {
 
     @media (max-width: 800px) {
       flex-direction: column;
+      padding-left: 20px;
     }
 
     .core-themes-card {
@@ -763,6 +774,11 @@ h2 {
   max-width: 1440px;
   position: relative;
 
+  @media (max-width: 800px) {
+    // margin-left: 10px;
+    // margin-right: 10px;
+  }
+
   .logo-stamp {
     position: absolute;
     top: 0;
@@ -826,7 +842,7 @@ h2 {
   position: relative;
   
   @media (max-width: 800px) {
-    padding: 20px;
+    padding: 20px 0;
   }
   
   &::after {
@@ -870,6 +886,12 @@ h2 {
       display: flex;
       align-items: center;
       height: 472px;
+
+      @media (max-width: 800px) {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 30px;
+      }
   
       .an-header-title {
         flex: 1;
@@ -911,6 +933,9 @@ h2 {
           text-align: center;
           margin: 20px 0;
           width: 400px;
+          @media (max-width: 800px) {
+            width: auto;
+          }
         }
   
         .note {
@@ -920,6 +945,10 @@ h2 {
           text-align: center;
           width: 70%;
           margin: 6px auto;
+
+          @media (max-width: 800px) {
+            width: auto;
+          }
         }
       }
     }

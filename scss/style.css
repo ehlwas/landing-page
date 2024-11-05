@@ -63,6 +63,7 @@ h2 {
   background: var(--darken-white-1);
   padding: 0 22px;
   z-index: 999;
+  overflow: hidden;
 }
 .nav-bar-section .nb-container {
   display: flex;
@@ -181,6 +182,7 @@ h2 {
 }
 @media (max-width: 800px) {
   .banner-container .banner-message-wrapper .apply-here-w {
+    flex-direction: column;
     width: 80%;
   }
 }
@@ -216,7 +218,7 @@ h2 {
 }
 @media (max-width: 800px) {
   .banner-container .banner-message-wrapper .apply-here-w .btn {
-    width: 150px;
+    width: 100%;
   }
 }
 
@@ -272,6 +274,11 @@ h2 {
   background: var(--themes-icon-bg-icon-brand-light);
   padding: 50px 80px 60px;
   position: relative;
+}
+@media (max-width: 800px) {
+  .objectives-container {
+    padding: 50px 0px 60px;
+  }
 }
 .objectives-container::after, .objectives-container::before {
   position: absolute;
@@ -452,6 +459,11 @@ h2 {
   text-align: center;
   margin-bottom: 28px;
 }
+@media (max-width: 800px) {
+  .core-themes-container .title-header {
+    padding: 0 10px;
+  }
+}
 .core-themes-container .title-header h2 {
   color: #1b8354;
   margin-bottom: 10px;
@@ -477,6 +489,7 @@ h2 {
 @media (max-width: 800px) {
   .core-themes-container .core-themes-card-wrapper {
     flex-direction: column;
+    padding-left: 20px;
   }
 }
 .core-themes-container .core-themes-card-wrapper .core-themes-card {
@@ -606,7 +619,7 @@ h2 {
 }
 @media (max-width: 800px) {
   .apply-now-container {
-    padding: 20px;
+    padding: 20px 0;
   }
 }
 .apply-now-container::after {
@@ -644,6 +657,13 @@ h2 {
   display: flex;
   align-items: center;
   height: 472px;
+}
+@media (max-width: 800px) {
+  .apply-now-container .apply-now-form-wrapper .apply-now-wrapper {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 30px;
+  }
 }
 .apply-now-container .apply-now-form-wrapper .apply-now-wrapper .an-header-title {
   flex: 1;
@@ -683,6 +703,11 @@ h2 {
   margin: 20px 0;
   width: 400px;
 }
+@media (max-width: 800px) {
+  .apply-now-container .apply-now-form-wrapper .apply-now-wrapper .an-content .btn {
+    width: auto;
+  }
+}
 .apply-now-container .apply-now-form-wrapper .apply-now-wrapper .an-content .note {
   font-size: 20px;
   font-weight: 500;
@@ -690,6 +715,11 @@ h2 {
   text-align: center;
   width: 70%;
   margin: 6px auto;
+}
+@media (max-width: 800px) {
+  .apply-now-container .apply-now-form-wrapper .apply-now-wrapper .an-content .note {
+    width: auto;
+  }
 }
 
 .tags-container {
