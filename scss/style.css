@@ -60,10 +60,18 @@ h2 {
 .nav-bar-section {
   position: sticky;
   top: 0;
-  background: var(--darken-white-1);
+  background: var(--white);
   padding: 0 22px;
   z-index: 999;
   overflow: hidden;
+}
+@media (max-width: 800px) {
+  .nav-bar-section .logo-container {
+    width: 200px;
+  }
+  .nav-bar-section .right-logo-container {
+    width: 200px;
+  }
 }
 .nav-bar-section .nb-container {
   display: flex;
@@ -102,6 +110,11 @@ h2 {
   color: white !important;
   padding: 4px 8px;
 }
+@media (max-width: 800px) {
+  .nav-bar-section .nb-container .nb-middle {
+    display: none !important;
+  }
+}
 .nav-bar-section .nb-container .nb-left,
 .nav-bar-section .nb-container .nb-right {
   width: 200px;
@@ -112,6 +125,38 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.nav-bar-section .nb-container .lang-btn {
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+  text-align: center;
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.nav-bar-section .nb-container .lang-btn:hover {
+  background: var(--primitives-colors-neutral-100);
+}
+.nav-bar-section .nb-container .lang-btn:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 6px;
+  background: transparent;
+  border-radius: 50px;
+  background: var(--themes-background-background-neutral-400);
+}
+.nav-bar-section .nb-container .lang-btn p {
+  font-family: var(--text-lg-regular-font-family);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--primitives-colors-base-black) !important;
 }
 
 .banner-container {
@@ -782,4 +827,78 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.page-container.arabic {
+  direction: rtl;
+}
+.page-container.arabic .banner-container .banner-message-wrapper {
+  left: unset;
+  right: 10%;
+}
+.page-container.arabic .banner-container .banner-message-wrapper .big {
+  text-align: right;
+}
+.page-container.arabic .banner-container .banner-message-wrapper .thin {
+  text-align: right;
+  width: auto;
+}
+.page-container.arabic .banner-container .banner-message-wrapper .apply-here-w {
+  position: relative;
+  right: 0;
+  margin-left: auto;
+}
+.page-container.arabic .banner-container .banner-message-wrapper .apply-here-w .label, .page-container.arabic .banner-container .banner-message-wrapper .apply-here-w .date {
+  text-align: right;
+}
+.page-container.arabic .divider-titles-wrapper .divider-title-header {
+  text-align: right;
+}
+.page-container.arabic .divider-titles-wrapper .divider-title-header::after {
+  left: unset;
+  right: -30px;
+}
+.page-container.arabic .eligibility-container .eligibility-wrapper .eligibility-card-wrapper .eligibility-card p {
+  text-align: right;
+}
+.page-container.arabic .core-themes-container .core-themes-card-wrapper {
+  padding-right: 0;
+  padding-left: 58px;
+}
+.page-container.arabic .core-themes-container .core-themes-card-wrapper .core-themes-card .card-title {
+  left: unset;
+  right: -6px;
+}
+@media (max-width: 800px) {
+  .page-container.arabic .core-themes-container .core-themes-card-wrapper .core-themes-card .card-title {
+    right: 0;
+  }
+}
+.page-container.arabic .core-themes-container .core-themes-card-wrapper .core-themes-card .card-title .card-icon-w {
+  transform: scaleX(-1);
+}
+.page-container.arabic .core-themes-container .core-themes-card-wrapper .core-themes-card .card-content {
+  left: unset;
+  right: 28px;
+  padding: 32px 60px 32px 32px;
+}
+.page-container.arabic .core-themes-container .core-themes-card-wrapper .core-themes-card .card-content ul li::before {
+  left: unset;
+  right: -34px;
+}
+.page-container.arabic .core-themes-container .core-themes-card-wrapper .core-themes-card .card-content ul li .label {
+  text-align: right;
+}
+.page-container.arabic .apply-now-container .apply-now-form-wrapper .apply-now-wrapper .an-header-title h2 {
+  text-align: right;
+}
+.page-container.arabic .apply-now-container .apply-now-form-wrapper .apply-now-wrapper .an-content p {
+  direction: rtl;
+}
+.page-container.arabic .tags-container .tags-content {
+  display: flex;
+}
+.page-container.arabic .tags-container .tags-content a {
+  margin-right: unset;
+  margin-left: 10px;
 }/*# sourceMappingURL=style.css.map */

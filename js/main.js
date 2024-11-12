@@ -11,16 +11,67 @@ window.addEventListener("scroll", function (event) {
 });
 
 
+let cmsData = null
 
 
+const renderNavBar = async () => {
+  const bannerSection = document.querySelector('#navbar');
+console.log(localStorage.getItem('activeLang'))
+  const language = localStorage.getItem('activeLang') || 'arabic'
 
+  const { navBarSection = {} } = cmsData
+  const { navItems = [] } = navBarSection
+
+  let nav = ''
+
+  await navItems.forEach((element, index) => {
+    const { label, link } = element
+    
+    nav += `
+      <div class="nav-item${index === 0 ? ' active' : ''}">
+        <a href="${link}">${label}</a>
+      </div>
+    `
+  });
+
+  bannerSection.innerHTML = `        
+    <div class="nb-container">
+      <div class="nb-left">
+        <div class="logo-container">
+          <img
+            src="./assets/icons/Logo.svg"
+            alt="Logo"
+            class="page-logo"
+          />
+        </div>
+      </div>
+      <div class="nb-middle">
+        <div class="nav-item-wrapper">
+          ${nav}
+        </div>
+      </div>
+      <div class="nb-right">
+        <div class="lang-btn" onclick="changeLanguage('${language === 'eng' ? 'arabic' : 'eng'}')">
+          <p>${language === 'eng' ? 'ع' : 'En'}</p>
+        </div>
+        <div class="right-logo-container">
+          <img
+            src="./assets/icons/Nama.svg"
+            alt="Logo"
+            class="page-logo"
+          />
+        </div>
+      </div>
+    </div>
+  `
+}
 
 
 const renderBannerContent = async () =>  {
     const bannerSection = document.querySelector('#bannerSection');
 
     const { headerSection = {} } = cmsData
-    const { headerBgImg = '', bigText = '', smallText = '', applyBeforeText = '', applyBeforeDate = '' } = headerSection
+    const { headerBgImg = '', bigText = '', smallText = '', applyBeforeText = '', applyBeforeDate = '', applyBtn = '' } = headerSection
 
     bannerSection.innerHTML = `        
         <img src="./assets/${headerBgImg}" alt="Banner" />
@@ -35,7 +86,7 @@ const renderBannerContent = async () =>  {
               <p class="label">${applyBeforeText}</p>
               <p class="date">${applyBeforeDate}</p>
             </div>
-            <button class="btn btn-primary">Apply here</button>
+            <button class="btn btn-primary">${applyBtn}</button>
           </div>
         </div>
     `
@@ -284,14 +335,36 @@ const renderTags = async () => {
 
 
 (async () => {
-    await renderBannerContent();
-    await renderAbout();
-    await renderObjectives()
-    await renderEligibility()
-    await renderCoreThemes()
-    await renderWhyApply()
-    await renderApplyNow()
-    await renderTags()
+  const pageContainer = document.querySelector('#pageContainer')
+  
+  if (localStorage.getItem('activeLang') === 'eng') {
+    localStorage.setItem('activeLang', 'eng')
+    cmsData = cmsDataEnglish
+  } else {
+    pageContainer.classList.add("arabic");
+    localStorage.setItem('activeLang', 'arabic')
+    cmsData = cmsDataArabic
+  }
+  
+  await renderNavBar()
+  await renderBannerContent();
+  await renderAbout();
+  await renderObjectives()
+  await renderEligibility()
+  await renderCoreThemes()
+  await renderWhyApply()
+  await renderApplyNow()
+  await renderTags()
 
-    document.querySelector('#pageContainer').style.opacity = 1
+  pageContainer.style.opacity = 1
 })();
+
+
+
+
+const changeLanguage = async (langItem) => {
+  
+  localStorage.setItem('activeLang', langItem)
+
+  window.location.reload()
+}
